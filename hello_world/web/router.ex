@@ -21,10 +21,13 @@ defmodule HelloWorld.Router do
     get "/hello", HelloController, :index
     get "/hello/:name", HelloController, :show
 
+    resources "/users", UserController, only: [:index, :show]
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HelloWorld do
-  #   pipe_through :api
-  # end
+   scope "/api", HelloWorld do
+     pipe_through :api
+
+     resources "/event", EventController, only: [:index]
+   end
 end
