@@ -25,9 +25,9 @@ defmodule HelloWorld.Router do
   end
 
   # Other scopes may use custom stacks.
-   scope "/api", HelloWorld do
+   scope "/api/v1", HelloWorld do
      pipe_through :api
 
-     resources "/event", EventController, only: [:index]
+     resources "/event", EventController, only: [:index, :create, :delete, :show]
    end
 end
