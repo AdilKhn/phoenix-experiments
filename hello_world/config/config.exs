@@ -20,4 +20,14 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+
+config :geca, Geca.Repo,
+   adapter: Ecto.Adapters.Postgres,
+   database: "geca_repo", # this is name of database in postgresql
+   username: "geca",
+   password: "sekret",
+   hostname: "localhost"
+
+config :geca, :rm, Geca.Repo
+
 import_config "#{Mix.env}.exs"

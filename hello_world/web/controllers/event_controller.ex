@@ -5,7 +5,8 @@ defmodule HelloWorld.EventController do
   def index(conn, _params) do
     Logger.info "Params: "
     #IO.inspect(_params)
-    render conn, "index.json"
+    #render conn, "index.json"
+    json conn, DataHandler.get_event.meta
   end
 
   def show(conn, _params) do
